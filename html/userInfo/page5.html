@@ -1,0 +1,102 @@
+<style type="text/css">
+    .msgItem, .msgItem > div {
+        -webkit-transition: width, height 0.5s;
+        -moz-transition: width, height 0.5s;
+        -ms-transition: width, height 0.5s;
+        -o-transition: width, height 0.5s;
+        transition: width, height 0.5s;
+    }
+
+    .msgItem {
+        width: 1106px;
+        height: 88px;
+        margin: 0 auto 14px;
+    }
+
+    .msgItem > div {
+        display: inline-flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 968px;
+        height: 100%;
+        background-color: #ffffff;
+        cursor: pointer;
+    }
+
+    .msgItem > .unfold {
+        width: 994px;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 0 56px;
+    }
+
+    .unfold > .msgContent {
+        width: 100%;
+        overflow: visible;
+        white-space: normal;
+    }
+
+    .msgContent {
+        width: 654px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .msgItem > label {
+        width: 102px;
+        height: 22px;
+        display: inline-flex;
+        justify-content: flex-end;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .msgItem > label > span:first-child {
+        width: 10px;
+        height: 10px;
+        margin-right: 16px;
+        border-radius: 50%;
+        border: 2px solid #888;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .msgItem > label > span:first-child > i {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+    }
+
+    .msgItem > label > span.marked {
+        border: 2px solid #d8170e;
+    }
+
+    .msgItem > label > span.marked > i {
+        background-color: #d8170e;
+    }
+
+    .myMsg > button {
+        margin-top: 16px;
+        width: 400px;
+        height: 64px;
+    }
+</style>
+<div class="myMsg clearfix">
+    <div class="infoBox">
+        <h1 class="infoTitle">系统消息</h1>
+        <div class="msgItem">
+            <div>
+                <p class="msgContent"></p>
+                <p class="msgDate">2015-8-11 22:48:26</p>
+            </div>
+            <label>
+                <span><i></i></span>
+                <span>标记</span>
+            </label>
+        </div>
+    </div>
+    <button type="button" class="color-switch fr">删除</button>
+</div>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="../css/Public_CSS.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <style>
+        .outBox {
+            width: 100%;
+            height: 468px;
+        }
+
+        .loginBox {
+            width: 400px;
+            height: 468px;
+            margin: 80px auto;
+        }
+
+        .logTitle {
+            height: 80px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logTitle h3 {
+            font-size: 2em;
+            letter-spacing: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .logTitle p {
+            font-size: 1.1em;
+            color: #888;
+        }
+
+        .logTitle p a {
+            color: #4375ad;
+            text-decoration: underline;
+            letter-spacing: 0.2em;
+        }
+
+        .logTitle p a:hover {
+            color: #419aad;
+        }
+
+        .logCom {
+            margin-top: 25px;
+        }
+
+        .logInput {
+            width: 400px;
+            height: 380px;
+            margin: auto;
+        }
+
+        .logInput label {
+            font-size: 1.1em;
+            text-align: left;
+        }
+
+        .logInput input {
+            width: 370px;
+            height: 48px;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            font-size: 1em;
+            transition: box-shadow 0.3s;
+        }
+
+        .logInput input:focus {
+            box-shadow: 0 0 5px #21b211;
+        }
+
+        .logInput a {
+            text-decoration: underline;
+            float: right;
+            color: #333;
+        }
+
+        .logInput a:hover {
+            color: #4375ad
+        }
+
+        .loginBtn {
+            width: 398px;
+            height: 55px;
+            border: none;
+            background: #838281;
+            color: #fff;
+            font-size: 1.6em;
+            letter-spacing: 0.5em;
+            margin: 30px 0 0;
+        }
+
+        .active {
+            background-color: #82c353;
+        }
+
+        /*弹出框样式*/
+        .showCon {
+            width: 300px;
+            height: 160px;
+            padding: 30px 40px;
+            position: fixed;
+            border-radius: 10px;
+            left: calc(50% - 180px);
+            top: calc(50% - 80px);
+            text-align: center;
+            background-color: #fff;
+            z-index: 10;
+            box-shadow: 0 0 15px #a5a5a5;
+            font-size: 20px;
+        }
+
+        .showCon button {
+            width: 150px;
+            height: 50px;
+            background-color: #838281;
+            border-radius: 5px;
+            border: none;
+            margin-top: 60px;
+            color: #fff;
+            font-size: 18px;
+            letter-spacing: 8px;
+        }
+
+        .showCon button:hover {
+            background-color: #82c353;
+        }
+    </style>
+</head>
+<body>
+
+<header></header>
+
+<div class="outBox">
+    <div class="loginBox">
+        <div class="logTitle">
+            <h3>登录</h3>
+            <p>还不是我们的会员？<a class="reg">注册</a></p>
+        </div>
+        <form class="logInput">
+            <div class="logCom">
+                <label>账号</label>
+                <input type="text" placeholder="用户注册邮箱号" id="nameIpt"><br>
+            </div>
+            <div class="logCom">
+                <label>密码</label>
+                <input type="password" id="pswIpt">
+                <a>忘记密码？</a>
+            </div>
+            <button class="loginBtn" type="button">登录</button>
+        </form>
+    </div>
+</div>
+
+<footer></footer>
+<script type="text/javascript" rel="script" src="../plugin/jquery-3.2.1.js"></script>
+<script type="text/javascript" rel="script" src="../js/index.js"></script>
+<script type="text/javascript" rel="script" src="../js/function.js"></script>
+<script type="text/javascript" rel="script" src="../js/common.js"></script>
+<script type="text/javascript">
+    //登录页面
+    var nameIpt = document.getElementById("nameIpt");
+    var pswIpt = document.getElementById("pswIpt");
+    var loginBtn = document.getElementsByClassName("loginBtn")[0];
+    var showCon1 = "<div class='showCon'><p>请输入账号密码</p><button>重输</button></div>";
+    var showCon2 = "<div class='showCon'><p>账户名或密码错误！</p><button>重输</button></div>";
+
+    loginBtn.addEventListener('click', function () {
+        if (!nameIpt.value || !pswIpt.value) {
+            $("body").append(showCon1);
+            $("#nameIpt").val("");
+            $("#pswIpt").val("");
+            $(".showCon button").click(function () {
+                $(".showCon").css("display", "none");
+            })
+        } else if (nameIpt.value && pswIpt.value) {
+            var a = JSON.parse(localStorage.getItem("info"));
+            if (a === null) a = [];
+            var getUsename = "", getUsepsw = "", leng = a.length;
+            for (var i = 0; i < leng; i++) {
+                getUsename = a[i].Username;
+                getUsepsw = a[i].psw;
+                if (nameIpt.value === getUsename && pswIpt.value === getUsepsw) {
+                    localStorage.setItem("loginState", "success");
+                    localStorage.setItem("loginUsername", getUsename);
+                    window.location.href = '../index.html';
+                    break;
+                } else {
+                    $("body").append(showCon2);
+                    $("#nameIpt").val("");
+                    $("#pswIpt").val("");
+                    $(".showCon button").click(function () {
+                        $(".showCon").css("display", "none");
+                    })
+                }
+            }
+        }
+    }, false);
+    BtnStatuss();
+    function BtnStatuss() {
+        // 账号输入触发
+        $("#nameIpt").keyup(function () {
+            var thisLen = $(this).val().length,
+                pwdLen = $("#pswIpt").val().length;
+            if (thisLen >= 6 && pwdLen >= 6) {
+                $(".loginBtn").addClass("active");
+            } else {
+                $(".loginBtn").removeClass("active");
+            }
+        });
+        // 密码输入触发
+        $("#pswIpt").keyup(function () {
+            var thisLen = $(this).val().length,
+                nameLen = $("#nameIpt").val().length;
+            if (thisLen >= 6 && nameLen >= 6) {
+                $(".loginBtn").addClass("active");
+            } else {
+                $(".loginBtn").removeClass("active");
+            }
+        });
+    }
+
+    $(".reg").one("click", function () {
+        rootUrl += "html/register.html";
+        window.location.href = rootUrl;
+    });
+
+</script>
+</body>
+</html>

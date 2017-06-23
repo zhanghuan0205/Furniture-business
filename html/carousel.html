@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>图片幻灯片</title>
+    <link rel="stylesheet" type="text/css" href="../css/Public_CSS.css">
+    <style>
+        .allbox {
+            width: 814px;
+            height: 388px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .slide {
+            width: 814px;
+            height: 388px;
+            font-size: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide img {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            transition: all 1.5s;
+        }
+
+        .idots {
+            width: 200px;
+            height: 20px;
+            font-size: 0;
+            text-align: center;
+            position: absolute;
+            bottom: 9px;
+            left: -26px;
+        }
+
+        .idots span {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            cursor: pointer;
+            margin-right: 10px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s;
+        }
+
+        .abc {
+            background-color: #b6ccff !important;
+            border: 1px solid #3e7dff;
+        }
+
+        /*动画效果*/
+        @keyframes ani {
+            from {
+                transform: scale(1)
+            }
+            to {
+                transform: scale(1.2)
+            }
+        }
+
+        .show {
+            opacity: 1 !important;
+            animation: ani 5s linear;
+        }
+
+    </style>
+</head>
+<body>
+<div class="allbox" id="allBox">
+    <!--图片-->
+    <div class="slide" id="imgList">
+
+        <img src="../images/example_1.jpg" title="纯白的梦想">
+        <img src="../images/example_1a.jpg" title="木制的古典">
+        <img src="../images/example_1b.jpg" title="简约格调">
+        <img src="../images/example_1c.jpg" title="气派生活">
+
+    </div>
+    <!--小圆点-->
+    <div class="idots" id="idots"></div>
+</div>
+<script type="text/javascript" src="../plugin/jquery-3.2.1.js"></script>
+<script>
+    /*
+     为小圆点添加点击事件
+     */
+    var slideList = $(".slide"),
+        imageList = slideList.children("img"),
+        imageList_leng = imageList.length;
+
+    var idots = slideList.next()
+    for (var i = 0; i < imageList_leng; i++) {
+        idots.append("<span></span>")
+    }
+
+    //添加class
+    imageList.first().addClass('show');
+    idots.children().first().addClass('abc');
+    //设置时间
+    var imgSlidetime = setInterval(function () {
+        cutImg();
+    }, 5000);
+    //小圆点点击切换图片
+    idots.children().click(function () {
+        var thisIdx = $(this).index();
+        $(this).addClass("abc").siblings().removeAttr("class");
+        imageList.eq(thisIdx).addClass("show").siblings().removeAttr("class");
+        clearInterval(imgSlidetime);
+        imgSlidetime = setInterval(function () {
+            cutImg();
+        }, 5000);
+    });
+    //
+    function cutImg() {
+        //当前值
+        var showImage = $(".slide > img.show"),
+            showImage_idx = showImage.index();
+
+        var randomNum = Math.round(Math.random() * 3 + 1);
+        if (showImage_idx != imageList_leng - 1) {
+            showImage.removeAttr("class").next().addClass("show changebig" + randomNum);
+            idots.children().eq(showImage_idx + 1).addClass("abc").siblings().removeAttr("class");
+        } else {
+            showImage.removeAttr("class");
+            imageList.eq(0).addClass("show changebig" + randomNum);
+            idots.children().eq(0).addClass("abc").siblings().removeAttr("class");
+        }
+    }
+</script>
+</body>
+</html>

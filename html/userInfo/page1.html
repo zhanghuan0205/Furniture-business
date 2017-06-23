@@ -1,0 +1,60 @@
+<style type="text/css">
+    .myInfo {
+        font-size: 18px;
+        padding: 30px 26px;
+    }
+
+    .myInfo > p {
+        line-height: 40px;
+    }
+
+    .myInfo > input[type="text"] {
+        height: 40px;
+        padding: 0 10px;
+        margin-right: 5px;
+        transition: box-shadow 0.3s;
+    }
+
+    .myInfo > input[type="text"]:focus {
+        border: 1px solid #82c353;
+        box-shadow: 0 0 10px rgba(130, 195, 83, 0.6);
+    }
+
+    .myInfo > input.userInfoName {
+        width: 132px;
+    }
+
+    .myInfo > input.userInfoTel {
+        width: 256px;
+    }
+
+    .myInfo > input.userInfoAddress {
+        width: 527px;
+    }
+
+    .color-switch {
+        margin-top: 16px;
+        width: 400px;
+        height: 64px;
+    }
+</style>
+<div class="myInfo">
+    <p>联系人</p>
+    <input type="text" placeholder="姓名" class="userInfoName">
+    <input type="text" placeholder="电话号码" class="userInfoTel">
+    <p>性别</p>
+    <input type="radio" name="gender" value="1"><label>男</label>
+    <input type="radio" name="gender" value="2"><label>女</label>
+    <p>生日</p>
+    <div id="birthday"></div>
+    <p>家居偏好</p>
+    <div id="preference"></div>
+    <p>教育程度</p>
+    <div id="education"></div>
+    <p>所在行业</p>
+    <div id="profession"></div>
+    <p>所在地区</p>
+    <div id="address"></div>
+    <input type="text" placeholder="街道门牌号" class="userInfoAddress">
+</div>
+<button class="color-switch color-switch-disabled" disabled>提交</button>

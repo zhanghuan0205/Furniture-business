@@ -1,0 +1,133 @@
+{
+  "navigation": [
+    {
+      "category": "沙发&nbsp;&nbsp;SOFAS",
+      "type": [
+        "单人位",
+        "双人位",
+        "三人位",
+        "休闲沙发",
+        "转角沙发"
+      ],
+      "goods": {
+        "img": "images/example_0.jpg",
+        "name": "XX沙发",
+        "oldPrice": "¥&nbsp;6898",
+        "newPrice": "¥&nbsp;2872"
+      }
+    },
+    {
+      "category": "桌椅&nbsp;&nbsp;TABLES/CHAIRS",
+      "type": [
+        "餐桌",
+        "书桌",
+        "电脑桌",
+        "梳妆台",
+        "餐椅",
+        "凳子",
+        "休闲椅",
+        "户外椅",
+        "其它"
+      ],
+      "goods": {
+        "img": "images/example_0.jpg",
+        "name": "XX桌椅",
+        "oldPrice": "¥&nbsp;6898",
+        "newPrice": "¥&nbsp;2872"
+      }
+    },
+    {
+      "category": "床&nbsp;&nbsp;BEDS",
+      "type": [
+        "1.5M床",
+        "1.8M床",
+        "其它"
+      ],
+      "goods": {
+        "img": "images/example_0.jpg",
+        "name": "XX床品",
+        "oldPrice": "¥&nbsp;6898",
+        "newPrice": "¥&nbsp;2872"
+      }
+    },
+    {
+      "category": "柜&nbsp;&nbsp;STORAGE",
+      "type": [
+        "衣柜",
+        "储物柜",
+        "电视柜",
+        "书柜",
+        "鞋柜",
+        "床头柜",
+        "其它"
+      ],
+      "goods": {
+        "img": "images/example_0.jpg",
+        "name": "XX储柜",
+        "oldPrice": "¥&nbsp;6898",
+        "newPrice": "¥&nbsp;2872"
+      }
+    },
+    {
+      "category": "更多&nbsp;&nbsp;MORE",
+      "type": [
+        "组合产品",
+        "日用家具",
+        "家居饰品",
+        "其它"
+      ],
+      "goods": {
+        "img": "images/example_0.jpg",
+        "name": "更多XX",
+        "oldPrice": "¥&nbsp;6898",
+        "newPrice": "¥&nbsp;2872"
+      }
+    }
+  ],
+  "selectList": {
+    "preference": [
+      "现代简约",
+      "恬淡田园",
+      "现代中式",
+      "东南亚风格",
+      "欧式古典",
+      "地中海",
+      "美式乡村",
+      "美式古典",
+      "时尚混搭",
+      "其它"
+    ],
+    "education": [
+      "初中",
+      "高中",
+      "大专",
+      "本科",
+      "硕士",
+      "博士",
+      "其它"
+    ],
+    "profession": [
+      "机构组织",
+      "农林牧渔",
+      "医药卫生",
+      "建筑材料",
+      "冶金矿产",
+      "石油化工",
+      "信息产业",
+      "交通运输",
+      "机械机电",
+      "轻工食品",
+      "服装纺织",
+      "安全防护",
+      "环保绿化",
+      "其它"
+    ],
+    "address": [
+      "四川",
+      "北京",
+      "上海",
+      "深圳",
+      "其它地区"
+    ]
+  }
+}

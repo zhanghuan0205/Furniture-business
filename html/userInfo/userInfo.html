@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <link rel="stylesheet" type="text/css" href="../../css/Public_CSS.css">
+    <link rel="stylesheet" type="text/css" href="../../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <style type="text/css">
+
+        .userInfo {
+            padding: 15px;
+            width: 1230px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .userInfo > * {
+            width: 1190px;
+        }
+
+        .userInfoSwitch {
+            border-bottom: 1px solid #cccccc;
+            position: relative;
+        }
+
+        .userInfoSwitch > a {
+            padding: 0 10px;
+            border-bottom: 2px solid transparent;
+            font-size: 20px;
+            color: #666;
+            margin: 0 26px;
+        }
+
+        .userInfoSwitch > a.checked {
+            border-bottom: 2px solid #de3d36;
+            color: #de3d36;
+        }
+
+        .userInfoSwitch > .notice {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            top: -5px;
+            left: 745px;
+            background-color: #ff0000;
+            color: #ffffff;
+            font-size: 12px;
+
+        }
+    </style>
+</head>
+
+<body>
+<header></header>
+<form class="userInfo">
+    <div class="userInfoSwitch">
+        <a class="mouseon checked">个人信息</a>
+        <a class="mouseon">我的订单</a>
+        <a class="mouseon">我的出售</a>
+        <a class="mouseon">个人账户</a>
+        <a class="mouseon">系统消息</a>
+        <i class="notice">0</i>
+    </div>
+</form>
+
+<footer></footer>
+<script type="text/javascript" rel="script" src="../../plugin/jquery-3.2.1.js"></script>
+<script type="text/javascript" rel="script" src="../../js/index.js"></script>
+<script type="text/javascript" rel="script" src="../../js/function.js"></script>
+<script type="text/javascript" rel="script" src="../../js/common.js"></script>
+<script type="text/javascript">
+    info1();
+    var i = 0;
+    $(".userInfoSwitch > a").each(function () {
+        $(this).attr("idx", ++i)
+    });
+    $(".userInfoSwitch > a").click(function () {
+        $(".userInfoSwitch").nextAll().remove();
+        $(this).parent().children().removeClass("checked");
+        $(this).addClass("checked");
+
+        switch (Number($(this).attr("idx"))) {
+            case 1:
+                info1();
+                break;
+            case 2:
+                info2();
+                break;
+            case 3:
+                info3();
+                break;
+            case 4:
+                info4();
+                break;
+            case 5:
+                info5();
+        }
+    })
+</script>
+</body>
+</html>

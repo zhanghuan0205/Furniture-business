@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../css/Public_CSS.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <style>
+        .regBox {
+            width: 100%;
+            height: auto;
+            margin: 80px auto;
+        }
+
+        .register {
+            width: 100%;
+            height: auto;
+            text-align: center;
+        }
+
+        .register h2 {
+            font: normal 2em "微软雅黑";
+        }
+
+        .register p {
+            font: normal 18px "微软雅黑";
+            color: #888;
+        }
+
+        .register a {
+            color: #4375ad;
+            text-decoration: underline;
+        }
+
+        .registertop {
+            margin-top: 10px;
+        }
+
+        /*4个框*/
+        .fourcase {
+            width: 400px;
+            height: auto;
+            margin: 10px auto 100px;
+        }
+
+        .fourcase label {
+            display: block;
+            width: 400px;
+            height: auto;
+            font: normal 1.1em "微软雅黑";
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .fourcase input {
+            width: 350px;
+            height: 48px;
+            transition: box-shadow .3s;
+            border: 1px solid #ccc;
+            padding: 0 10px;
+        }
+
+        #idNumber {
+            width: 350px;
+            font-size: 16px;
+        }
+
+        .fourcase input:focus {
+            box-shadow: 0px 0px 5px #21b211;
+        }
+
+        .present {
+            width: 374px;
+            height: 55px;
+            margin-top: 60px;
+            background-color: #838281;
+            color: #ffffff;
+            font: normal 30px "微软雅黑";
+            border: none;
+            letter-spacing: 0.5em;
+        }
+
+        .active {
+            background-color: #82c353;
+        }
+
+        .showCon {
+            width: 300px;
+            height: 160px;
+            padding: 30px 40px;
+            position: fixed;
+            border-radius: 10px;
+            left: calc(50% - 180px);
+            top: calc(50% - 80px);
+            text-align: center;
+            background-color: #fff;
+            z-index: 10;
+            box-shadow: 0 0 15px #a5a5a5;
+            font-size: 20px;
+        }
+
+        .showCon button {
+            width: 150px;
+            height: 50px;
+            background-color: #838281;
+            border-radius: 5px;
+            border: none;
+            margin-top: 60px;
+            color: #fff;
+            font-size: 18px;
+            letter-spacing: 8px;
+        }
+
+        .showCon button:hover {
+            background-color: #82c353;
+        }
+    </style>
+</head>
+<body>
+<header></header>
+<!--注册-->
+<div class="regBox">
+    <div class="register">
+        <h2>注&nbsp;&nbsp;&nbsp;册</h2>
+        <p class="registertop">已经是我们的会员？
+            <a class="log">登&nbsp;录</a>
+        </p>
+    </div>
+    <!--4个框-->
+    <form class="fourcase">
+        <div>
+            <label>注册账号</label>
+            <input type="text" placeholder="用户注册邮箱号" id="idNumber">
+        </div>
+        <div>
+            <label>登陆密码</label>
+            <input type="password" id="enterPsw">
+        </div>
+        <div>
+            <label>确认密码</label>
+            <input type="password" id="affirmPsw">
+        </div>
+        <button type="button" class="present">提交</button>
+    </form>
+</div>
+<footer></footer>
+<!--js-->
+<script type="text/javascript" rel="script" src="../plugin/jquery-3.2.1.js"></script>
+<script type="text/javascript" rel="script" src="../js/index.js"></script>
+<script type="text/javascript" rel="script" src="../js/function.js"></script>
+<script type="text/javascript" rel="script" src="../js/common.js"></script>
+<script type="text/javascript">
+    $(".log").one("click", function () {
+        rootUrl += "html/login.html";
+        window.location.href = rootUrl;
+    })
+</script>
+</body>
+</html>
+

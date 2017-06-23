@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>购物车</title>
+    <link rel="stylesheet" type="text/css" href="../css/Public_CSS.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html, input, span, tbody, thead, table, tr, td, th, h3, p, div {
+            margin: 0;
+            padding: 0;
+        }
+
+        .shopcar {
+            width: 1280px;
+            height: auto;
+            margin: 0 auto;
+
+        }
+
+        .shopcar h3 {
+            font: normal 20px '微软雅黑';
+            margin-bottom: 10px;
+        }
+
+        table, tr, th {
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        th {
+            border: none;
+            font-size: 20px;
+        }
+
+        .headline input {
+            width: 30px;
+            height: 18px;
+        }
+
+        /*左边*/
+        .account {
+            width: 1280px;
+            height: 60px;
+            line-height: 60px;
+            background-color: #dededd;
+            margin: 30px auto 40px;
+            position: relative;
+        }
+
+        .leftcar {
+            font: normal 15px '微软雅黑';
+            line-height: 60px;
+            width: 215px;
+            height: 60px;
+            text-align: center;
+        }
+
+        .leftcar input {
+            width: 40px;
+            height: 20px;
+            position: relative;
+            top: 3px;
+            left: 8px;
+        }
+
+        .selected {
+            font-size: 20px;
+            color: #ff0000;
+        }
+
+        /*右边*/
+        .rightcar {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .rightstyle span:nth-child(1) {
+            font-size: 25px;
+        }
+
+        .rightstyle span:nth-child(2) {
+            font-size: 15px;
+        }
+
+        .rightstyle span:nth-child(3) {
+            font-size: 25px;
+            color: #ff0000;
+        }
+
+        .rightstyle div {
+            display: inline-block;
+        }
+
+        .redstyle {
+            width: 140px;
+            height: 60px;
+            color: #ffffff;
+            text-align: center;
+            background-color: #ff0000;
+            cursor: pointer;
+        }
+
+        .rightstyle span:nth-child(4) {
+            font-size: 25px;
+        }
+
+        /*table里面的样式*/
+        .filtmentname {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .filtmentname p {
+            width: 60px;
+            text-align: center;
+            font-size: 10px;
+        }
+        .parentlevel{
+            position: relative;
+        }
+
+        .narrate1 {
+            display: inline-block;
+            width: 150px;
+            position: absolute;
+            top: 22px;
+            left: 110px;
+        }
+
+        .narrate1 p {
+            text-align: center;
+            font-size: 12px;
+            color: #9a9b9c;
+        }
+        .nextparent{
+            position: relative;
+        }
+
+        .narrate-copy {
+            font-size: 12px;
+            color: #9a9b9c;
+            display: inline-block;
+            width: 150px;
+            position: absolute;
+            top: 22px;
+            left: 110px;
+        }
+
+        /*数量按钮*/
+        .key input {
+            width: 36px;
+            height: 20px;
+            text-align: center;
+        }
+
+        .key {
+            color: #888888;
+        }
+        .reduce{
+            width: 18px;
+        }
+
+    </style>
+</head>
+<body>
+<header></header>
+<div class="shopcar">
+    <h3>我的购物车</h3>
+    <table>
+        <thead>
+        <tr>
+            <th width="100px" class="headline">
+                <input name="treasure" type="checkbox" class="treasure" checked="">
+                <i class="allCkd ckb-checked_custom"></i>
+            </th>
+            <th width="240px" height="50px">商品信息</th>
+            <th width="240px">单价</th>
+            <th width="240px">数量</th>
+            <th width="240px">金额</th>
+            <th width="240px">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="disable">
+            <td width="100px" class="headline">
+                <input name="treasure" type="checkbox" class="treasure" checked="">
+                <i class="allCkd ckb-checked_custom"></i>
+            </td>
+            <td width="240px" height="100px" class="parentlevel">
+                <div class="filtmentname">
+                    <img src="../images/example_0.jpg" width="60px" height="60px">
+                    <p>家具名称</p>
+                </div>
+                <div class="narrate1">
+                    <p>产品尺寸</p>
+                    <p>产品材质</p>
+                    <p>产品颜色</p>
+                </div>
+            </td>
+            <td>
+                <span class="two">￥568</span>
+            </td>
+            <td>
+                <div class="key2 key">
+                    <button type="button" class="reduce2 reduce">-</button>
+                    <input type="text" value="3" class="input2">
+                    <button type="button" class="add2">+</button>
+                </div>
+            </td>
+            <td>
+                <span class="onemoney">￥1704</span>
+            </td>
+            <td>
+                <span class="vanish">删除</span>
+            </td>
+        </tr>
+        <tr class="disable">
+            <td width="100px"  class="headline">
+                <input name="treasure" type="checkbox" class="treasure" checked="">
+                <i class="allCkd ckb-checked_custom"></i>
+            </td>
+            <td width="240px" height="100px" class="nextparent">
+                <div class="filtmentname">
+                    <img src="../images/shop.jpg" width="60px" height="60px">
+                    <p>家具名称</p>
+                </div>
+                <div class="narrate-copy">
+                    <p>产品尺寸</p>
+                    <p>产品材质</p>
+                    <p>产品颜色</p>
+                </div>
+            </td>
+            <td>
+                <span class="three">￥568</span>
+            </td>
+            <td>
+                <div class="key1 key">
+                    <button type="button" class="reduce reduce1">-</button>
+                    <input type="text" value="3" class="input1">
+                    <button type="button" class="add1">+</button>
+                </div>
+            </td>
+            <td>
+                <span class="single">￥1704</span>
+            </td>
+            <td>
+                <span class="vanish">删除</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--结算栏-->
+    <div class="account">
+        <!--左边-->
+        <div class="leftcar headline">
+            <input name="treasure" type="checkbox" class="treasure" checked="">
+            <i class="allCkd ckb-checked_custom"></i>
+            <span>全选</span>
+            <span>已选商品<span class="selected">6</span>件</span>
+        </div>
+
+        <!--右边-->
+        <div class="rightcar">
+            <div class="rightstyle">
+                <!--第一-->
+                <span>合计</span>
+                <span>（不含运费）：</span>
+
+                <!--第二-->
+                <span class="totalmoney"></span>
+
+                <!--第三-->
+                <div class="redstyle">
+                    <span>去结算</span>
+                </div>
+            </div>
+            <div>
+                <!--结算栏-->
+            </div>
+            <!--整体-->
+        </div>
+    </div>
+</div>
+<footer></footer>
+
+
+<script type="text/javascript" rel="script" src="../plugin/jquery-3.2.1.js"></script>
+<script type="text/javascript" rel="script" src="../js/function.js"></script>
+<script type="text/javascript" rel="script" src="../js/common.js"></script>
+<script>
+
+    //全选第一个按钮
+    $(".treasure:first").click(function () {
+        if( $(".treasure:first").prop("checked") == true){
+            $(".treasure").prop("checked",true);
+        }else{
+            $(".treasure").prop("checked",false);
+        }
+    });
+
+    //全选最后一个按钮
+    $(".treasure:last").click(function () {
+        if( $(".treasure:last").prop("checked") == true){
+            $(".treasure").prop("checked",true);
+        }else{
+            $(".treasure").prop("checked",false);
+        }
+    });
+    //删除
+
+    $(".vanish").click(function(){
+        $(this).parents().parent(".disable").remove()
+    });
+
+
+    //购物车页面数量增减
+    goodsNum(".add2", ".reduce2", ".key2 .input2");
+    goodsNum(".add1", ".reduce1", ".key1 .input1");
+
+    //详情页面加入购物车事件
+    function goodsNum(add, reduce, input) {
+        // 获取input输入框的库存量
+
+        var inputNum = parseInt($(input).val());
+        if (inputNum === 0) {
+            $(reduce).addClass("disabled");
+        }
+        else if (inputNum >= 100) {
+            $(add).addClass("disabled");
+            $(input).val(100);
+        }
+        //增加数量
+        $(document).on("click", add, function () {
+            var curCount = parseInt($(input).val());
+            // 若当前数量小于总库存量
+            if (curCount < 100) {
+                $(input).val(curCount + 1);
+                $(reduce).removeClass("disabled");
+            }
+            // 若当前数量小于总库存量,并在加1后等于库存总量
+            else if (curCount === (100 - 1)) {
+                $(input).val(curCount + 1);
+                $(add).addClass("disabled");
+                $(reduce).removeClass("disabled");
+            }
+            //已选商品总共数量
+            var sum1 = parseInt($(".input2").val()) + parseInt($(".input1").val());
+            $(".selected").text(sum1);
+
+            //金额乘以数量的和
+            var one4 = parseInt($(".two").text().slice(1)) *parseInt($(".input2").val());
+            $(".onemoney").text("￥" + one4);
+            //
+            var one5 = parseInt($(".three").text().slice(1)) *parseInt($(".input1").val());
+            $(".single").text("￥" + one5);
+
+
+            //结算
+            var one6 = parseInt(one4 + one5);
+            $(".totalmoney").text("￥" + one6);
+        });
+
+        //减少数量
+        $(document).on("click", reduce, function () {
+            var curCount = parseInt($(input).val());
+            if (curCount > 1) {
+                $(input).val(curCount - 1);
+                $(add).removeClass("disabled");
+            }
+            else if (curCount === 1) {
+                $(input).val(curCount - 1);
+                $(reduce).addClass("disabled");
+                $(add).removeClass("disabled");
+            }
+            //已选商品总共数量
+            var sum1 = parseInt($(".input2").val()) + parseInt($(".input1").val());
+            $(".selected").text(sum1);
+
+            //金额乘以数量的和
+            var one4 = parseInt($(".two").text().slice(1)) *parseInt($(".input2").val());
+            $(".onemoney").text("￥" + one4);
+            //
+            var one5 = parseInt($(".three").text().slice(1)) *parseInt($(".input1").val());
+            $(".single").text("￥" + one5);
+
+
+            //结算
+            var one6 = parseInt(one4 + one5);
+            $(".totalmoney").text("￥" + one6);
+        });
+    }
+</script>
+</body>
+</html>
