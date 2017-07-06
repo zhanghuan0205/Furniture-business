@@ -3,7 +3,7 @@
  */
 
 var rootUrl = window.location.href;
-rootUrl = rootUrl.slice(0, rootUrl.indexOf("huli/") + 5);
+rootUrl = rootUrl.slice(0, rootUrl.indexOf("huiM/") + 5);
 
 
 // 加载页头信息
@@ -21,7 +21,7 @@ $.get(rootUrl + "html/header.html", function (str) {
 });
 
 $("header").on("click", "a", function (event) {
-    rootUrl = rootUrl.slice(0, rootUrl.indexOf("huli/") + 5);
+    rootUrl = rootUrl.slice(0, rootUrl.indexOf("huiM/") + 5);
     var a = event.target.innerText;
     if (a.match("沙发")) {
         window.location.href = rootUrl + "html/category/sofa.html";
